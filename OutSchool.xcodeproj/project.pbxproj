@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D51CFCD2743E36A005278A5 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51CFCC2743E36A005278A5 /* testVC.swift */; };
 		9D5696A527427DB200C78009 /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5696A427427DB200C78009 /* View1.xib */; };
 		9D5696A727428D2600C78009 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5696A627428D2600C78009 /* View2.xib */; };
 		9D5696AF2742AA4E00C78009 /* View3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5696AE2742AA4E00C78009 /* View3.xib */; };
@@ -16,7 +15,6 @@
 		9D60DFEA27415C9100C66222 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D60DFE827415C9100C66222 /* Main.storyboard */; };
 		9D60DFEC27415C9300C66222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D60DFEB27415C9300C66222 /* Assets.xcassets */; };
 		9D60DFEF27415C9300C66222 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D60DFED27415C9300C66222 /* LaunchScreen.storyboard */; };
-		9D60DFF727415DC600C66222 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60DFF627415DC600C66222 /* FirstTableViewCell.swift */; };
 		9D60DFF927415EEF00C66222 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60DFF827415EEF00C66222 /* InfoViewController.swift */; };
 		DAF1209221450E3C7524662B /* Pods_OutSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE0E020AFE083770CCBDD66 /* Pods_OutSchool.framework */; };
 /* End PBXBuildFile section */
@@ -25,7 +23,6 @@
 		7FE0E020AFE083770CCBDD66 /* Pods_OutSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		869501E5C66B162A9846D66C /* Pods-OutSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutSchool.release.xcconfig"; path = "Target Support Files/Pods-OutSchool/Pods-OutSchool.release.xcconfig"; sourceTree = "<group>"; };
 		90144EC436A54E5FE4EAE30A /* Pods-OutSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutSchool.debug.xcconfig"; path = "Target Support Files/Pods-OutSchool/Pods-OutSchool.debug.xcconfig"; sourceTree = "<group>"; };
-		9D51CFCC2743E36A005278A5 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
 		9D5696A427427DB200C78009 /* View1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
 		9D5696A627428D2600C78009 /* View2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
 		9D5696AE2742AA4E00C78009 /* View3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View3.xib; sourceTree = "<group>"; };
@@ -36,7 +33,6 @@
 		9D60DFEB27415C9300C66222 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D60DFEE27415C9300C66222 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D60DFF027415C9300C66222 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D60DFF627415DC600C66222 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
 		9D60DFF827415EEF00C66222 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,12 +89,10 @@
 				9D60DFE227415C9100C66222 /* AppDelegate.swift */,
 				9D60DFE427415C9100C66222 /* SceneDelegate.swift */,
 				9D60DFF827415EEF00C66222 /* InfoViewController.swift */,
-				9D60DFF627415DC600C66222 /* FirstTableViewCell.swift */,
 				9D5696A427427DB200C78009 /* View1.xib */,
 				9D5696A627428D2600C78009 /* View2.xib */,
 				9D5696AE2742AA4E00C78009 /* View3.xib */,
 				9D60DFE827415C9100C66222 /* Main.storyboard */,
-				9D51CFCC2743E36A005278A5 /* testVC.swift */,
 				9D60DFED27415C9300C66222 /* LaunchScreen.storyboard */,
 				9D60DFEB27415C9300C66222 /* Assets.xcassets */,
 				9D60DFF027415C9300C66222 /* Info.plist */,
@@ -225,8 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D60DFE327415C9100C66222 /* AppDelegate.swift in Sources */,
-				9D51CFCD2743E36A005278A5 /* testVC.swift in Sources */,
-				9D60DFF727415DC600C66222 /* FirstTableViewCell.swift in Sources */,
 				9D60DFE527415C9100C66222 /* SceneDelegate.swift in Sources */,
 				9D60DFF927415EEF00C66222 /* InfoViewController.swift in Sources */,
 			);
