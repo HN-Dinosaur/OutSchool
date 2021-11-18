@@ -10,12 +10,12 @@ import SnapKit
 class InfoViewController: UIViewController {
     var isExpanding: [Bool] = [false, true, true]
     var strArray: [String] = ["基本信息","申请信息","审核信息"]
-    var viewArray: [UIView] = [
-            Bundle.loadNibView(name: "View1", class: UIView.self),
-            Bundle.loadNibView(name: "View2", class: UIView.self),
-            Bundle.loadNibView(name: "View3", class: UIView.self)
+    lazy var viewArray: [UIView] = [
+        Bundle.loadNibView(name: "View1", class: UIView.self),
+        Bundle.loadNibView(name: "View2", class: UIView.self),
+        Bundle.loadNibView(name: "View3", class: UIView.self)
     ]
-    let infoTabelView: UITableView = {
+    lazy var infoTabelView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
     }()
@@ -39,7 +39,22 @@ class InfoViewController: UIViewController {
 extension InfoViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         isExpanding[indexPath.section] = !isExpanding[indexPath.section]
-        tableView.reloadData()
+        let cell = tableView.cellForRow(at: indexPath)!
+        if isExpanding[indexPath.section]{
+            UIView.animate(withDuration: 0.13) {
+                cell.accessoryView?.transform = CGAffineTransform(rotationAngle: .pi)
+            }
+        }else{
+            UIView.animate(withDuration: 0.13) {
+                cell.accessoryView?.transform = CGAffineTransform(rotationAngle: -.pi)
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.14) {
+            tableView.reloadData()
+        }
+        
+        
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -69,8 +84,16 @@ extension InfoViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.selectedBackgroundView = UIView()
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        if isExpanding[indexPath.section]{
+            imageView.image = UIImage(named: "chevronDown")
+        }else{
+            imageView.image = UIImage(named: "chevronUp")
+        }
+        cell.accessoryView = imageView
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         cell.textLabel?.text = strArray[indexPath.section]
-        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
