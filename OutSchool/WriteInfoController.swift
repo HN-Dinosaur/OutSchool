@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 8, *)
 class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     @IBOutlet weak var name: UITextField!
@@ -43,11 +44,11 @@ class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & U
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        name.delegate = self
     }
     
-
+    
     
     // MARK: - Navigation
 
@@ -67,6 +68,8 @@ class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & U
                 view2.beginTime.text = self.beginTime.text
                 view2.endTime.text = self.endTime.text
                 view2.image.image = readyDisplayImageView.image
+                
+                
             }
         }
     }
@@ -78,4 +81,10 @@ class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & U
     }
     
 
+}
+extension WriteInfoController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
 }
