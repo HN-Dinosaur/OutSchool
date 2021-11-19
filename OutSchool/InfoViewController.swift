@@ -19,11 +19,17 @@ class InfoViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
     }()
+    var selfName: String?
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var bottomLabel: UILabel!
+    @IBAction func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.text = selfName
         infoTabelView.delegate = self
         infoTabelView.dataSource = self
         mainView.addSubview(infoTabelView)
@@ -52,21 +58,21 @@ extension InfoViewController: UITableViewDelegate{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.14) {
             tableView.reloadData()
         }
-        
-        
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 extension InfoViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        0.0001
+//        print("heightForHeaderInSection")
+        return 0.0001
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        UIView()
+//        print("viewForHeaderInSection")
+        return UIView()
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        print("heightForFooterInSection")
         if isExpanding[section]{
             return viewArray[section].bounds.height
         }else{
@@ -74,15 +80,19 @@ extension InfoViewController: UITableViewDataSource{
         }
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        print("viewForFooterInSection")
         return viewArray[section]
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+//        print("numberOfSections")
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+//        print("numberOfRowsInSection")
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        print("cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.selectedBackgroundView = UIView()
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
