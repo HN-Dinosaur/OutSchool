@@ -39,8 +39,14 @@ class InfoViewController: UIViewController {
             make.bottom.equalTo(bottomLabel.snp.top)
         }
         infoTabelView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        
+        let screenEdgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePan))
+        screenEdgePan.edges = .left
+        view.addGestureRecognizer(screenEdgePan)
     }
-    
+    @objc func handleScreenEdgePan(){
+        navigationController?.popViewController(animated: true)
+    }
 }
 extension InfoViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

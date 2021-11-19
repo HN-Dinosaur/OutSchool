@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 8, *)
 class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     @IBOutlet weak var name: UITextField!
@@ -27,6 +26,7 @@ class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & U
         present(alert, animated: true)
         
     }
+
     func clickCamera(){
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -45,7 +45,29 @@ class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        config()
+        
+    }
+//    func storeData(){
+//        UserDefaults.standard
+//    }
+    func config(){
+        if let accessoryInputView = Bundle.main.loadNibNamed("KeyBoardInputAccessory", owner: nil, options: nil)?.first as? KeyBoardInputAccessory{
+            name.inputAccessoryView = accessoryInputView
+            stuNo.inputAccessoryView = accessoryInputView
+            beginTime.inputAccessoryView = accessoryInputView
+            stuClass.inputAccessoryView = accessoryInputView
+            endTime.inputAccessoryView = accessoryInputView
+            accessoryInputView.doneBtn.addTarget(self, action: #selector(clickFinish), for: .touchUpInside)
+        }
         name.delegate = self
+        stuClass.delegate = self
+        stuNo.delegate = self
+        beginTime.delegate = self
+        endTime.delegate = self
+    }
+    @objc func clickFinish(){
+        view.endEditing(true)
     }
     
     
@@ -84,7 +106,7 @@ class WriteInfoController: UIViewController, UIImagePickerControllerDelegate & U
 }
 extension WriteInfoController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
+        textField.resignFirstResponder()
         return true
     }
 }
